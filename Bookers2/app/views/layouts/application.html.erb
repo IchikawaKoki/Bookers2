@@ -10,6 +10,67 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <span>
+              <i class="fas fa-book"></i>
+              Bookers
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item text-light px-2">
+                  <i class="fas fa-home"></i>
+                  HOME
+                </li>
+                <li class="nav-item text-light px-2">
+                  <i class="fas fa-users"></i>
+                  Users
+                </li>
+                <li class="nav-item text-light px-2">
+                  <i class="fas fa-book-open"></i>
+                  Books
+                </li>
+                <li class="nav-item text-light px-2">
+                  <a class="fas fa-sign-out-alt nav-link text-light" href="/users/sign_out">Logout</a>
+                </li>
+              <% else %>
+                <li class="nav-item text-light px-2">
+                  <i class="fas fa-home"></i>
+                  HOME
+                </li>
+                <li class="nav-item text-light px-2">
+                  <i class="fas fa-users"></i>
+                  About
+                </li>
+                <li class="nav-item text-light px-2">
+                  <a class="fas fa-user-plus nav-link text-light" href="/users/sign_up"> sign up</a>
+                </li>
+                <li class="nav-item text-light px-2">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Login
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row mt-5">
+          <div class="mx-auto">
+           	<p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

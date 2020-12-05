@@ -25,36 +25,31 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <li class="nav-item text-light px-2">
-                  <i class="fas fa-home"></i>
-                  HOME
+                <li>
+                  <a class="fas fa-home nav-link text-light" href="/">Home</a>
                 </li>
                 <li class="nav-item text-light px-2">
                   <i class="fas fa-users"></i>
                   Users
                 </li>
                 <li class="nav-item text-light px-2">
-                  <i class="fas fa-book-open"></i>
-                  Books
+                  <a class="fas fa-book-open nav-link text-light" href="/books">Books</a>
                 </li>
-                <li class="nav-item text-light px-2">
-                  <a class="fas fa-sign-out-alt nav-link text-light" href="/users/sign_out">Logout</a>
+                <li>
+                  <a class="fas fa-sign-out-alt nav-link text-light" href="/users/sign_out" data-method="delete">logout</a>
                 </li>
               <% else %>
-                <li class="nav-item text-light px-2">
-                  <i class="fas fa-home"></i>
-                  HOME
+                <li>
+                  <a class="fas fa-home nav-link text-light" href="/">Home</a>
                 </li>
-                <li class="nav-item text-light px-2">
-                  <i class="fas fa-users"></i>
-                  About
+                <li>
+                  <a class="fas fa-link nav-link text-light" href="/home/about"> About</a>
                 </li>
-                <li class="nav-item text-light px-2">
+                <li>
                   <a class="fas fa-user-plus nav-link text-light" href="/users/sign_up"> sign up</a>
                 </li>
-                <li class="nav-item text-light px-2">
-                  <i class="fas fa-sign-out-alt"></i>
-                  Login
+                <li>
+                  <a class="fas fa-sign-out-alt nav-link text-light" href="/users/sign_in">login</a>
                 </li>
               <% end %>
             </ul>
@@ -63,9 +58,9 @@
       </nav>
     </header>
     <%= yield %>
-    <footer>
-      <div class="container mt-5">
-        <div class="row mt-5">
+    <footer class="fixed-bottom">
+      <div class="container">
+        <div class="row">
           <div class="mx-auto">
            	<p>CopyRight Infratop.inc</p>
           </div>

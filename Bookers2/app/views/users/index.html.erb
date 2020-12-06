@@ -1,5 +1,3 @@
-<%= render 'layouts/error_form',input: @book %>
-
 <div class="container mt-4">
   <div class="row">
     <div class="col-3">
@@ -37,33 +35,27 @@
         </div>
       <% end %>
     </div>
-
-    <div class="col-8 ml-auto">
-      <h2>Books</h2>
+     <div class="col-8 ml-auto">
+      <h2>Users</h2>
       <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
+            <th>image</th>
+            <th>name</th>
             <th colspan="3"></th>
           </tr>
         </thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @users.each do |user| %>
             <tr>
               <td>
-                <%= link_to user_path(book.user.id) do %>
-                  <%= attachment_image_tag book.user, :profile_image,size: "40x40", fallback: "no_image.jpg" %>
-                <% end %>
+                <%= attachment_image_tag user, :profile_image,size: "40x40", fallback: "no_image.jpg" %>
               </td>
+              <td><%= user.name %></td>
               <td>
-                <%= link_to book_path(book.id) do %>
-                  <%= book.title %>
-                <% end %>
+                <%= link_to 'Show',user_path(user.id) %>
               </td>
-              <td><%= book.body %></td>
-              <th colspan="3"></th>
+              <th></th>
             </tr>
           <% end %>
         </tbody>
